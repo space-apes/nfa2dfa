@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script src="utility.js"> </script>
+
+<style>
+.container
+{
+display:flex;
+margin:0;
+}
+.tableDiv
+{
+width:50%;
+margin:0;
+}
+table,td,th
+{
+border: black solid 2px;
+}
+td,th
+{
+width: 20%;
+}
+
+#stateNameLabel, #stateName
+{
+display:none;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<p>
+This web application converts a given non-deterministic finite acceptor into an equivalent deterministic finite acceptor. You have the option of providing a 
+list of states and their transitions upon consuming a specific input 
+or calculating the equivalent DFA of pre-determined test-cases.
+<br>
+<b>
+If you choose to input values, the default first state is named 'q0' and transitions from one state to multiple states 
+require the use of commas between each outgoing state.
+</b>
+</p>
+<br>
+<!-- input fields -->
+<label id="stateNameLabel"> state name </label> 
+<input type="text" id="stateName">
+
+<label id="aTransitionsLabel">'a' transitions </label> 
+<input type="text" id="aTransitions">
+
+<label id="bTransitionsLabel"> 'b' transitions </label> 
+<input type="text" id="bTransitions">
+
+<label id="lTransitionsLabel"> lambda transitions </label> 
+<input type="text" id="lTransitions">
+
+<label id="acceptingLabel"> accepting State? </label>
+<select id="accepting">
+<option value="true" id="true">true</option>
+<option value="false">false</option>
+</select>
+<br>
+
+<button onClick="stateSubmit()">submit a state </button>
+<button onClick="clearAll()"> clear all </button>
+<button onClick="NFASubmit()">submit a NDFA </button>
+<br>
+<button onClick="testCase()">test case </button>
+<button onClick="testCase2()">test case 2 </button>
+</button>
+<div class="container">
+	<div class="tableDiv">
+	<h1>
+	NFA
+	</h1>
+	<table id="nfaTable">
+	
+	<tr><th></th><th>a</th><th>b</th><th>lambda</th><th>e-closure</th><th>accepting?</th>
+	</tr>
+	</table>
+	</div>
+	<div class="tableDiv">
+	<h1>
+	equivalent DFA
+	</h1>
+	<table id="dfaTable">	
+	<tr><th></th><th>a</th><th>b</th><th>accepting?</th></tr>
+	</table>
+	</div>
+
+</div>
+</body>
+
+
+<script src="nfa2dfa.js">
+</script>
+</html>
+
